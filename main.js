@@ -4,25 +4,22 @@ const jsCode = document.getElementById("jsCode");
 const phpCode = document.getElementById("phpCode");
 const output = document.getElementById("output");
 const iframe = document.getElementById("preview");
-
-// Get the buttons
 const runButton = document.getElementById("runButton");
 const clearButton = document.getElementById("clearButton");
 const downloadButton = document.getElementById("downloadButton");
 
-// Add event listeners to the buttons
+// event listeners to the buttons
 runButton.addEventListener("click", runCode);
 clearButton.addEventListener("click", clearCode);
 downloadButton.addEventListener("click", downloadCode);
 
-// Function to run the code
+// To Run Code
 function runCode() {
   const html = htmlCode.value;
   const css = cssCode.value;
   const js = jsCode.value;
-  const php = phpCode.value; // احصل على كود PHP
+  const php = phpCode.value;
 
-  // تحقق من أن الكود PHP ليس فارغًا
   if (php.trim() !== "") {
     fetch("/execute.php", {
       method: "POST",
@@ -33,7 +30,6 @@ function runCode() {
     })
       .then((response) => response.text())
       .then((data) => {
-        // إعداد iframe لعرض النتيجة
         iframe.contentWindow.document.open();
         iframe.contentWindow.document.write(`
             <html>
@@ -55,7 +51,7 @@ function runCode() {
       })
       .catch((error) => console.error("Error executing PHP:", error));
   } else {
-    // إذا لم يكن هناك كود PHP، عرض الـ HTML و CSS و JS فقط
+    // لو مفيش كود php
     iframe.contentWindow.document.open();
     iframe.contentWindow.document.write(`
             <html>
@@ -76,7 +72,7 @@ function runCode() {
   }
 }
 
-// Function to clear the code
+// clear input
 function clearCode() {
   htmlCode.value = "";
   cssCode.value = "";
@@ -88,7 +84,7 @@ function clearCode() {
   iframe.contentWindow.document.close();
 }
 
-// Function to download the code
+// Download Code
 function downloadCode() {
   const zip = new JSZip();
   const htmlFile = zip.file("index.html", htmlCode.value);
