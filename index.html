@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Live Code Editor</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+    <div class="live-code">
+        <div id="editor-left">
+            <div class="code-section">
+                <label for="htmlCode">HTML Code:</label>
+                <textarea id="htmlCode" class="code" placeholder="Enter HTML code here"></textarea>
+            </div>
+            <div class="code-section">
+                <label for="cssCode">CSS Code:</label>
+                <textarea id="cssCode" class="code" placeholder="Enter CSS code here"></textarea>
+            </div>
+            <div class="code-section">
+                <label for="jsCode">JavaScript Code:</label>
+                <textarea id="jsCode" class="code" placeholder="Enter JavaScript code here"></textarea>
+            </div>
+            <div class="code-section">
+                <label for="phpCode">PHP Code:</label>
+                <textarea id="phpCode" class="code" placeholder="Enter PHP code here"></textarea>
+            </div>
+        </div>
+        <div class="editor_output">
+            <div class="code-sectionout">
+                <label for="output">Output:</label>
+                <div id="output">
+                    <iframe id="preview" frameborder="0" width="100%" height="100%" style="outline: none;"></iframe>
+                </div>
+            </div>
+            <div id="menu">
+                <!-- زر التشغيل مع أيقونة التشغيل -->
+                <button id="runButton">
+                    <svg width="800px" height="800px" viewBox="0 0 24 24" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path fill="#fff"
+                            d="M21.4086 9.35258C23.5305 10.5065 23.5305 13.4935 21.4086 14.6474L8.59662 21.6145C6.53435 22.736 4 21.2763 4 18.9671L4 5.0329C4 2.72368 6.53435 1.26402 8.59661 2.38548L21.4086 9.35258Z"
+                            fill="#1C274C" />
+                    </svg>
+                </button>
+
+                <!-- زر المسح مع أيقونة الحذف -->
+                <button id="clearButton">
+                    <svg fill="#000000" width="800px" height="800px" viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path fill="#fff"
+                            d="M5.755,20.283,4,8H20L18.245,20.283A2,2,0,0,1,16.265,22H7.735A2,2,0,0,1,5.755,20.283ZM21,4H16V3a1,1,0,0,0-1-1H9A1,1,0,0,0,8,3V4H3A1,1,0,0,0,3,6H21a1,1,0,0,0,0-2Z" />
+                    </svg>
+                </button>
+
+                <!-- زر التحميل مع أيقونة التنزيل -->
+                <a id="downloadButton">
+                    <svg width="800px" height="800px" viewBox="0 0 24 24" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <g id="Interface / Download">
+                            <path id="Vector" d="M6 21H18M12 3V17M12 17L17 12M12 17L7 12" stroke="#fff" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                        </g>
+                    </svg> </a>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/1.3.8/FileSaver.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.5.0/jszip.min.js"></script>
+
+    <script src="main.js"></script>
+</body>
+
+</html>
